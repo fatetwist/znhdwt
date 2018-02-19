@@ -133,6 +133,3 @@ while True:
     print(answers['answers'][b])
 
 
-#
-# for x in ids:
-# add a line and delete a line
