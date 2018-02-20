@@ -103,6 +103,7 @@ def search_question(keyword):
     return id
 
 
+
 def start(a,b):
     for x in range(a, b+1):
         contents = get_answer_by_id(x)
@@ -122,14 +123,14 @@ def start(a,b):
 
 
 
-while True:
-    word = input('请输入关键词：')
-    ids = search_question(word)
-    a = random.randint(0, len(ids))
-    answers = get_answer_by_id(ids[a])
-    b = random.randint(0, len(answers['answers'])-1)
-    print(len(answers['answers']))
-    print(b)
-    print(answers['answers'][b])
+# while True:
+#     word = input('请输入关键词：')
+#     ids = search_question(word)
+#     a = random.randint(0, len(ids))
+#     answers = get_answer_by_id(ids[a])
+#     b = random.randint(0, len(answers['answers'])-1)
+#     print(len(answers['answers']))
+#     print(b)
+#     print(answers['answers'][b])
 
 
