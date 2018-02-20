@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}智能问答系统{% endblock %}
+{% block body %}
+<br>
+<br>
+<div class="container">
+<div class="jumbotron">
+    <h1>欢迎来到智能问答系统</h1>
+    <input type="text" class="form-control" id="keyword">
+    <br>
+    <button type="button" class="btn btn-default" id="start">开始互动</button>
+    <br>
+    <div style="border: 1px cornflowerblue;" class="container">
+        <h3>小度正在等待您的提问...</h3>
+    </div>
+    <hr>
+    <div class="jumbotron">
+     <div id="answer"></div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -87,6 +87,16 @@ def get_answer_by_id(id):
         return rp
 
 
+def get_answer_by_url(q_url):
+    if 'http' in q_url:
+        url = q_url
+        return None
+    else:
+        id = q_url[10:-5]
+        print('获取到id: ' + id)
+        answers = get_answer_by_id(id)
+        return answers
+
 def search_question(keyword):
     url = 'https://zhidao.baidu.com/search?word=' + keyword
     soup = download_soup(url,headers=headers,encoding='utf-8')
@@ -102,6 +112,24 @@ def search_question(keyword):
 
     return id
 
+def search_question2(keyword):
+    url = "https://zhidao.baidu.com/msearch/ajax/getsearchlist"
+    querystring = {"word": keyword, "pn": "0"}
+
+    response = requests.request("GET", url, params=querystring,headers=headers)
+    try:
+        if response.status_code == 200:
+            res = json.loads(response.text)
+            print(res)
+            answer_list = res['data']['entry']
+            q_url = []
+            for x in answer_list:
+                q_url.append(x['url'])
+    except:
+        raise KeyError
+
+    print(q_url)
+    return q_url
 
 
 def start(a,b):
